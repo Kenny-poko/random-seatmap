@@ -15,6 +15,11 @@ $(function(){
     let members = document.getElementsByClassName('members');
     console.log (members);
 
+    let resultLenrth = members.length - 1;
+
+   
+
+
     var
       bingo = [],
       status = true,
@@ -22,9 +27,12 @@ $(function(){
       random,
       number,
       result,
+      $members = $(".members"),
       $number = $("#number"),
       $result = $("#result");
-   
+    
+      console.log (members[0].textContent);
+
     for(var i = 1; i <= 20; i++) {
       bingo.push(i);
     }
@@ -37,7 +45,7 @@ $(function(){
         roulette = setInterval(function(){
           random = Math.floor(Math.random() * bingo.length);
           number = bingo[random];
-          $result.text(number);
+          $result.text(members[number].textContent);
         }, 10);
       } else {
         status = true;

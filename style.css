@@ -66,7 +66,7 @@ body {
 
 .button {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 2em 4em;
   text-decoration: none;
   color: rgb(13, 61, 17);
   border: double 4px rgb(13, 61, 17);
