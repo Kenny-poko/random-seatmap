@@ -1,10 +1,5 @@
-$(".outer-seat").on("click", function() {
-  $(this).toggleClass('selected-outerColor');
-});
-$(".inner-seat").on("click", function() {
-  $(this).toggleClass('selected-innerColor');
-});
 $(function(){
+
   "use strict";
   let members = document.querySelectorAll('.members');
   console.log (members);
@@ -34,10 +29,10 @@ $(function(){
       roulette = setInterval(function(){
         random = Math.floor(Math.random() * bingo.length);
         number = bingo[random];
-        console.log(members[number].textContent);
-        console.log(number);
+        // console.log(members[number].textContent);
+        // console.log(number);
         $result.text(members[number].textContent);
-      }, 10);
+      }, 50);
     } else {
       status = true;
       $(this).text("次の人は..");
@@ -46,10 +41,23 @@ $(function(){
       clearInterval(roulette);
  
       result = bingo[random];
+      
       bingo.splice(random, 1);
  
       $result.text(members.text);
       $number.find("li").eq(parseInt(result, 10)).addClass("hit");
     }
   });
+
+
+// // リセットボタン
+$('#reset-button').click(function(){
+  location.reload();
+})
+
+
 });
+
+
+
+

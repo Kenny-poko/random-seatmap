@@ -58,9 +58,12 @@ body {
   color: #fff;
 }
 
-.wrapper-button {
-  padding: 20px 0 50px;
-  text-align: center;
+
+.buttonkun {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
 
@@ -77,6 +80,26 @@ body {
   background: #fffbef;
 }
 
+
+footer {
+  text-align: center;
+}
+
+
+
+
+.reset-button {
+  display: inline-block;
+  padding: 2em 4em;
+  text-decoration: none;
+  color: rgb(13, 61, 17);
+  border: double 4px rgb(13, 61, 17);
+  border-radius: 3px;
+  transition: .4s;
+}
+.reset-button:hover {
+  background: #fffbef;
+}
 
 footer {
   text-align: center;
