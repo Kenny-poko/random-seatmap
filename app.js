@@ -2,55 +2,58 @@ $(function(){
 
   "use strict";
   let members = document.querySelectorAll('.members');
-  console.log (members);
-  let resultLength = members.length - 1;
  
   var
     bingo = [],
     status = true,
     roulette,
     random,
-    number,
+    classname,
     result,
-    // $members = $(".members"),
-    $number = $("#number"),
+    // $members = $(".members"), ←これだとエラーが起きた
+    $classname = $("#classname"),
     $result = $("#result");
-  
-    console.log (members.textContent);
-  for(var i = 0; i <= 19; i++) {
-    bingo.push(i);
-  }
+    
+    for(var i = 0; i <= 19; i++) {
+      bingo.push(i);
+    }
+    console.log (bingo);
  
+  // ルーレット開始ボタン
+    // ボタンを押すと文字が変わる
   $("#button").on("click", function(){
     if(status) {
       status = false;
       $(this).text("君だ！！");
- 
+      
+      // ランダムで文字を表示
+      // *setIntervalー一定時間に特定の処理を繰り返す
       roulette = setInterval(function(){
         random = Math.floor(Math.random() * bingo.length);
-        number = bingo[random];
-        // console.log(members[number].textContent);
-        // console.log(number);
-        $result.text(members[number].textContent);
-      }, 50);
+        classname = bingo[random];
+        $result.text(members[classname].textContent);
+      }, 10);
     } else {
       status = true;
       $(this).text("次の人は..");
  
- 
+      //  setInterval を使用して設定された繰り返し動作を止める
       clearInterval(roulette);
  
+      // 結果を画面に表示
       result = bingo[random];
       
+      // 出た結果を決して一回の表示のみにする
       bingo.splice(random, 1);
- 
+      
+      // 結果にclaaを追加、色を付ける
       $result.text(members.text);
-      $number.find("li").eq(parseInt(result, 10)).addClass("hit");
+      $classname.find("li").eq(parseInt(result, 10)).addClass("hit");
     }
   });
 
 
-// // リセットボタン
+//リセットボタン
 $('#reset-button').click(function(){
   location.reload();
 })

@@ -21,7 +21,7 @@ body {
   margin: 80px auto;
 }
 
-.number {
+.classname {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -38,12 +38,12 @@ body {
 
 
 @media (max-width: 767px) {
-  .number {
+  .classname {
     width: 100%;
   }
 }
 
-.number li {
+.classname li {
   align-items: center;
   border: solid 1px rgb(13, 61, 17);
   display: flex;
@@ -53,7 +53,7 @@ body {
   width: 120px;
 }
 
-.number li.hit {
+.classname li.hit {
   background: rgb(13, 61, 17);
   color: #fff;
 }
