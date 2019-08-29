@@ -27,13 +27,13 @@ $(function(){
       random,
       number,
       result,
-      $members = $(".members"),
+    //   $members = $(".members"),
       $number = $("#number"),
       $result = $("#result");
     
       console.log (members[0].textContent);
 
-    for(var i = 1; i <= 20; i++) {
+    for(var i = 0; i <= 19; i++) {
       bingo.push(i);
     }
    
@@ -50,15 +50,16 @@ $(function(){
       } else {
         status = true;
         $(this).text("次の人は..");
-   
+   console.log (members[number]);
    
         clearInterval(roulette);
    
-        result = bingo[random];
+        result = members[number].textContent;
+        
         bingo.splice(random, 1);
    
-        $result.text(result);
-        $number.find("li").eq(parseInt(result, 10) - 1).addClass("hit");
+        $result.text(members.text);
+        $number.find("li").eq(parseInt(result, 10)).addClass("hit");
       }
     });
   });
