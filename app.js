@@ -4,7 +4,7 @@ $(function(){
   let members = document.querySelectorAll('.members');
  
   var
-    bingo = [],
+    picked = [],
     status = true,
     roulette,
     random,
@@ -15,9 +15,9 @@ $(function(){
     $result = $("#result");
     
     for(var i = 0; i <= 19; i++) {
-      bingo.push(i);
+      picked.push(i);
     }
-    console.log (bingo);
+    console.log (picked.textContent);
  
   // ルーレット開始ボタン
     // ボタンを押すと文字が変わる
@@ -29,9 +29,16 @@ $(function(){
       // ランダムで文字を表示
       // *setIntervalー一定時間に特定の処理を繰り返す
       roulette = setInterval(function(){
-        random = Math.floor(Math.random() * bingo.length);
-        classname = bingo[random];
-        $result.text(members[classname].textContent);
+        random = Math.floor(Math.random() * picked.length);
+        classname = picked[random];
+        if (picked.length > 0){
+          $result.text(members[classname].textContent);
+        }else {
+            $('#button').click(function(){
+            location.reload();
+             })
+        }
+        
       }, 10);
     } else {
       status = true;
@@ -41,25 +48,22 @@ $(function(){
       clearInterval(roulette);
  
       // 結果を画面に表示
-      result = bingo[random];
+      result = picked[random];
       
       // 出た結果を決して一回の表示のみにする
-      bingo.splice(random, 1);
+      picked.splice(random, 1);
+
+      console.log (picked.length);
       
-      // 結果にclaaを追加、色を付ける
+      // 結果にclassを追加、色を付ける
       $result.text(members.text);
       $classname.find("li").eq(parseInt(result, 10)).addClass("hit");
+
+      
     }
   });
-
-
-//リセットボタン
-$('#reset-button').click(function(){
-  location.reload();
-})
-
-
 });
+
 
 
 
